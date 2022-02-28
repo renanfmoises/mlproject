@@ -11,7 +11,7 @@ black:
 	@black scripts/* mlproject/*.py
 
 test:
-	@coverage run -m pytest tests/*.py
+	@coverage run -m pytest tests/test_*.py
 	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
 
 ftest:
@@ -24,6 +24,7 @@ clean:
 	@rm -fr build dist
 	@rm -fr mlproject-*.dist-info
 	@rm -fr mlproject.egg-info
+	@rm -fr .pytest_cache
 
 install:
 	@pip install . -U
